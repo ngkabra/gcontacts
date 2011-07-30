@@ -49,6 +49,7 @@ def update_csv(email, password):
     for p in px:
         if len(p[1]) > 0:
             cfile.writerow([p[0], ":".join(p[1])])
+    tmpf.close()
     shutil.move(tmpf.name, CSV_FILE)
 
 def read_csv():
