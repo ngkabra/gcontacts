@@ -5,7 +5,7 @@ from getpass import getpass
 from gdata.contacts import ContactEntry, Birthday, Event
 from optparse import OptionParser
 
-from mobileno import mobile_no
+from parsephoneno import phone_no
 import os
 import tempfile
 import shutil
@@ -25,7 +25,7 @@ def login(email, password):
 
 def phone_numbers(contacts):
     return [(c.title.text, 
-             [mobile_no(p.text) for p in c.phone_number if mobile_no(p.text)]) 
+             [phone_no(p.text) for p in c.phone_number if phone_no(p.text)]) 
             for c in contacts.entry if len(c.phone_number) > 0]
 
 def get_phone_list(client, max=2000):
